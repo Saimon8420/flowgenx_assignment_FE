@@ -1,5 +1,5 @@
 import { Handle, Position } from "@xyflow/react";
-import getStatusDetails from "../hooks/getStatusDetails";
+import getLLMStatusDetails from "../hooks/getLLMStatusDetails";
 
 // Simple styles for the node
 const llmCallNodeStyle = {
@@ -24,7 +24,7 @@ const statusStyle = {
 
 const LLMCallNode = ({ data }) => {
   const { label, status } = data;
-  const { statusText, statusColor } = getStatusDetails(status);
+  const { statusText, statusColor } = getLLMStatusDetails(status);
   return (
     <>
       <Handle type="target" position={Position.Top} />

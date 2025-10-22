@@ -1,13 +1,12 @@
-const getStatusDetails = (status) => {
+const getLLMStatusDetails = (status) => {
   // Determine status text and color based on state
   let statusText = "";
   let statusColor = "#333";
-
-  if (status === "saving") {
-    statusText = "Saving...";
+  if (status === "processing") {
+    statusText = "Processing...";
     statusColor = "#f6ad55"; // Orange
-  } else if (status === "saved") {
-    statusText = "Saved";
+  } else if (status === "done") {
+    statusText = "Done";
     statusColor = "#48bb78"; // Green
   } else if (status === "error") {
     statusText = "Error";
@@ -21,4 +20,4 @@ const getStatusDetails = (status) => {
   return { statusText, statusColor };
 };
 
-export default getStatusDetails;
+export default getLLMStatusDetails;

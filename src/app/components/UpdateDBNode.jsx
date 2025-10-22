@@ -1,4 +1,5 @@
 import { Handle, Position } from "@xyflow/react";
+import getDBStatusDetails from "../hooks/getDBStatusDetails";
 
 // Simple styles for the node
 const updateDBNodeStyle = {
@@ -21,11 +22,9 @@ const statusStyle = {
   marginTop: "5px",
 };
 
-import getStatusDetails from "../hooks/getStatusDetails";
-
 const UpdateDBNode = ({ data }) => {
   const { status, label } = data;
-  const { statusText, statusColor } = getStatusDetails(status);
+  const { statusText, statusColor } = getDBStatusDetails(status);
 
   return (
     <>
