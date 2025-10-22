@@ -1,33 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FlowGenX Assignment
+
+This is a Next.js project for a visual workflow editor. It allows users to create and manage complex workflows by connecting different types of nodes.
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To run this project, you will need to add the following environment variables to a `.env` file in the root of your project. Create a `.env` file and add the following:
 
-## Learn More
+```
+NEXT_PUBLIC_API_URL=your_api_url
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+*   **Visual Workflow Editor:** A drag-and-drop interface to build and visualize workflows.
+*   **Node-Based System:** Use different nodes for various actions:
+    *   **Chat Input:** To start a workflow with user input.
+    *   **LLM Call:** To perform a Large Language Model call.
+    *   **Update DB:** To update a database.
+*   **Real-time Status:** Nodes display their current status (e.g., running, completed, error).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
+
+*   `src/app/components`: Contains the React components for the different nodes and the main workflow editor.
+*   `src/app/hooks`: Contains custom hooks for fetching status details for the nodes.
+*   `public`: Contains static assets like images and icons.
 
 ## Deploy on Vercel
 
