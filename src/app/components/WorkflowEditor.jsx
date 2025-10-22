@@ -58,7 +58,7 @@ const initialEdges = [
   },
 ];
 
-const WorkflowEditor = () => {
+const WorkflowEditor = ({ onMessageReceived }) => {
   const [nodes, setNodes] = useState(initialNodes);
   const [edges, setEdges] = useState(initialEdges);
   const [isProcessing, setIsProcessing] = useState(false); // State to prevent multiple simultaneous runs
@@ -149,6 +149,9 @@ const WorkflowEditor = () => {
         }
 
         updateNodeStatus("3", "saved"); // Update DB node status after saving
+
+        // Notify parent component to update chat display
+        onMessageReceived(message, aiResponse);
       } catch (error) {
         console.error("Error during workflow execution:", error);
         // Optionally update node status to reflect error
@@ -163,7 +166,7 @@ const WorkflowEditor = () => {
         setIsProcessing(false); // Reset processing state
       }
     },
-    [isProcessing, updateNodeStatus]
+    [isProcessing, onMessageReceived, updateNodeStatus]
   );
 
   // Callback for connecting nodes (not strictly necessary for this fixed flow, but good practice)
