@@ -9,7 +9,7 @@ const chatInputNodeStyle = {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  border: "2px solid #667eea", // Blue border
+  border: "2px solid #667eea",
   borderRadius: "8px",
   backgroundColor: "#fff",
   padding: "10px",

@@ -10,23 +10,37 @@ import {
 import React, { useCallback, useState } from "react";
 import "@xyflow/react/dist/style.css";
 import ChatInputNode from "./ChatInputNode";
+import LLMCallNode from "./LLMCallNode";
+import UpdateDBNode from "./UpdateDBNode";
 
 // Define node types
 
 const nodeTypes = {
   chatInput: ChatInputNode,
+  llmCall: LLMCallNode,
+  updateDB: UpdateDBNode,
 };
 
 const initialNodes = [
   {
     id: "1",
+    type: "chatInput",
     position: { x: 100, y: 100 },
     data: { label: "Chat Input" },
   },
   {
     id: "2",
-    position: { x: 100, y: 100 },
-    data: { label: "Node 2" },
+    type: "llmCall",
+    position: { x: 400, y: 100 },
+    data: { label: "LLM Call", status: "idle" },
+    // inital status idle
+  },
+  {
+    id: "3",
+    type: "updateDB",
+    position: { x: 70, y: 100 },
+    data: { label: "Update DB", status: "idle" },
+    // initial status idle
   },
 ];
 
@@ -35,6 +49,12 @@ const initialEdges = [
     id: "e1-2",
     source: "1",
     target: "2",
+    animated: true,
+  },
+  {
+    id: "e2-3",
+    source: "2",
+    target: "3",
     animated: true,
   },
 ];
