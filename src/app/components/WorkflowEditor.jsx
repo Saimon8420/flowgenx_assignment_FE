@@ -9,16 +9,22 @@ import {
 } from "@xyflow/react";
 import React, { useCallback, useState } from "react";
 import "@xyflow/react/dist/style.css";
+import ChatInputNode from "./ChatInputNode";
+
+// Define node types
+
+const nodeTypes = {
+  chatInput: ChatInputNode,
+};
 
 const initialNodes = [
   {
-    id: "n1",
-    position: { x: 0, y: 0 },
-    data: { label: "Node 1" },
-    type: "input",
+    id: "1",
+    position: { x: 100, y: 100 },
+    data: { label: "Chat Input" },
   },
   {
-    id: "n2",
+    id: "2",
     position: { x: 100, y: 100 },
     data: { label: "Node 2" },
   },
@@ -26,9 +32,9 @@ const initialNodes = [
 
 const initialEdges = [
   {
-    id: "n1-n2",
-    source: "n1",
-    target: "n2",
+    id: "e1-2",
+    source: "1",
+    target: "2",
     animated: true,
   },
 ];
@@ -57,6 +63,7 @@ const WorkflowEditor = () => {
         onEdgesChange={onEdgesChange}
         fitView
         attributionPosition="bottom-left"
+        nodeTypes={nodeTypes}
       >
         <Background />
         <Controls />
