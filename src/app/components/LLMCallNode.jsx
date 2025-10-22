@@ -1,4 +1,5 @@
 import { Handle, Position } from "@xyflow/react";
+import getStatusDetails from "../hooks/getStatusDetails";
 
 // Simple styles for the node
 const llmCallNodeStyle = {

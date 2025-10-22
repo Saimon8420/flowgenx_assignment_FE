@@ -34,13 +34,14 @@ const buttonStyle = {
 
 const ChatInputNode = ({ data }) => {
   // Receive onSendMessage prop from data
-  const { label } = data;
+  const { onSendMessage, label } = data;
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue.trim()) {
-      setInputValue("");
+    if (inputValue.trim() && onSendMessage) {
+      onSendMessage(inputValue.trim()); // Trigger the workflow in parent
+      setInputValue(""); // Clear input after sending
     }
   };
   return (
