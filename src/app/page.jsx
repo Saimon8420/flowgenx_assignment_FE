@@ -14,8 +14,8 @@ export default function Home() {
     ]);
   };
   return (
-    <div>
-      <div>
+    <div className="workflow-container">
+      <div className="chat-area">
         {messages.map((msg) => (
           <div
             key={msg.id}
@@ -29,7 +29,7 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="w-full h-full">
+      <div className="workflow-editor-container">
         <WorkflowEditor onMessageReceived={addMessage} />
       </div>
     </div>

@@ -37,7 +37,7 @@ const initialNodes = [
   {
     id: "3",
     type: "updateDB",
-    position: { x: 70, y: 100 },
+    position: { x: 700, y: 100 },
     data: { label: "Update DB", status: "idle" },
     // initial status idle
   },
@@ -189,21 +189,19 @@ const WorkflowEditor = ({ onMessageReceived }) => {
   });
 
   return (
-    <div style={{ height: "100vh", width: "100vw" }}>
-      <ReactFlow
-        nodes={nodesWithHandler}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        fitView
-        attributionPosition="bottom-left"
-        nodeTypes={nodeTypes}
-        onConnect={onConnect}
-      >
-        <Background variant="dots" gap={12} size={1} />
-        <Controls />
-      </ReactFlow>
-    </div>
+    <ReactFlow
+      nodes={nodesWithHandler}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      fitView
+      attributionPosition="bottom-left"
+      nodeTypes={nodeTypes}
+      onConnect={onConnect}
+    >
+      <Background variant="dots" gap={12} size={1} />
+      <Controls />
+    </ReactFlow>
   );
 };
 
